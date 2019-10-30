@@ -8,7 +8,6 @@ class App extends Component {
 
     onRender(dom) {
         const header = new Header({
-            person: 'john travolta',
         });
         const headerDOM = header.renderDOM();
         dom.prepend(headerDOM);
@@ -25,14 +24,14 @@ class App extends Component {
 
         const filterImages = new FilterImages({
             images: images,
-            onFilter: (imageType) => {
+            onFilter: (imageKeyword) => {
                 let filteredImages;
-                if (!imageType) {
+                if (!imageKeyword) {
                     filteredImages = images;
                 }
                 else {
                     filteredImages = images.filter(image => {
-                        return image.type === imageType;
+                        return image.keyword === imageKeyword;
                     });
                 }
 
@@ -43,7 +42,7 @@ class App extends Component {
 
         const filterImagesDOM = filterImages.renderDOM();
 
-        const optionsSection = dom.querySelector('.options.section');
+        const optionsSection = dom.querySelector('.options-section');
         optionsSection.appendChild(filterImagesDOM);
     }
 

@@ -1,20 +1,19 @@
 import Component from '../Component.js';
 
 class ImageItem extends Component {
-    rentderHTML() {
+    renderHTML() {
         const image = this.props.image;
 
         return /*html*/`
             <li class="image-item">
                 <div class="info-container">
-                    <h2>${image.name}</h2>
-                    <p class="image-type">${image.type}</p>
+                    <h2>${image.title}</h2>
                 </div>
 
                 <div class="image-container">
-                    <img src="${image.url}" alt="${image.name} image">
+                    <img src="${image.url}" title="${image.description}">
                 </div>
-                <p class="horns">${image.horns}</p>
+                <p class="horns">Horns: ${image.horns}</p>
             </li>
         `;
     }
